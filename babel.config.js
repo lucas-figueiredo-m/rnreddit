@@ -11,6 +11,7 @@ module.exports = {
           tests: ['./__tests__/*']
         }
       }
-    ]
+    ],
+    ['babel-plugin-inline-import', { extensions: ['.svg'] }]
   ]
 }
