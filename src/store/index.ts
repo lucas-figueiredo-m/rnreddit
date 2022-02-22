@@ -2,7 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { FLUSH, PAUSE, PERSIST, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist'
 import persistReducer from 'redux-persist/es/persistReducer'
-import SearchReducer from 'store/Search/SearchReducer'
+import PostsReducer from 'store/Posts/PostsReducer'
 
 const persistConfig = {
   key: 'root',
@@ -11,7 +11,7 @@ const persistConfig = {
 }
 
 const combinedReducers = combineReducers({
-  search: SearchReducer
+  posts: PostsReducer
 })
 
 const store = configureStore({
@@ -31,6 +31,8 @@ const store = configureStore({
     // return middlewares
   }
 })
+
+export type RootState = ReturnType<typeof combinedReducers>
 
 export const persistor = persistStore(store)
 

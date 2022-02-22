@@ -13,7 +13,11 @@ const Router: React.FC = () => (
   <NavigationContainer>
     <Stack.Navigator>
       <Stack.Screen name={MainRoutes.Splash} component={SplashScreen} options={{ headerShown: false }} />
-      <Stack.Screen name={MainRoutes.PostList} component={PostListScreen} options={{ header: props => <Header /> }} />
+      <Stack.Screen
+        name={MainRoutes.PostList}
+        component={PostListScreen}
+        options={{ header: props => <Header {...props} /> }}
+      />
       <Stack.Screen name={MainRoutes.PostDetail} component={PostDetailScreen} />
     </Stack.Navigator>
   </NavigationContainer>

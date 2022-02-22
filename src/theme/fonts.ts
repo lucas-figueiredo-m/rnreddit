@@ -39,14 +39,11 @@ export default {
   }),
   weight: StyleSheet.create({
     black: { fontWeight: '900' },
-    extraBold: { fontWeight: '800' },
     bold: { fontWeight: '700' },
-    semibold: { fontWeight: '600' },
     medium: { fontWeight: '500' },
     regular: { fontWeight: '400' },
     thin: { fontWeight: '300' },
-    light: { fontWeight: '200' },
-    extraLight: { fontWeight: '100' }
+    light: { fontWeight: '200' }
   }),
   alignment: StyleSheet.create({
     left: { textAlign: 'left' },
