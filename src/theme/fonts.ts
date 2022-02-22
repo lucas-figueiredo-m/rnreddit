@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 export enum FontFamily {
-  Montserrat = 'Montserrat'
+  Roboto = 'Roboto'
 }
 
 export enum FontSize {
@@ -20,8 +20,8 @@ export enum FontSize {
 
 export default {
   family: StyleSheet.create({
-    Montserrat: {
-      fontFamily: FontFamily.Montserrat
+    Roboto: {
+      fontFamily: FontFamily.Roboto
     }
   }),
   size: StyleSheet.create({

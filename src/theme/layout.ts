@@ -24,6 +24,19 @@ export default {
     verticalCenter: {
       flexDirection: 'row',
       alignItems: 'center'
+    },
+    verticalCenterBetween: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between'
+    }
+  }),
+
+  columns: StyleSheet.create({
+    horizontalCenter: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center'
     }
   }),
 
@@ -33,6 +46,12 @@ export default {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center'
+    },
+    fullWidth: { width: '100%' },
+    fullHeight: { height: '100%' },
+    fullSize: {
+      width: '100%',
+      height: '100%'
     }
   })
 }

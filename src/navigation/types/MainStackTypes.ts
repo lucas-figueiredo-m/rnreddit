@@ -1,3 +1,4 @@
+import { RouteProp } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
 export enum MainRoutes {
@@ -9,7 +10,8 @@ export enum MainRoutes {
 export type MainStackParams = {
   [MainRoutes.Splash]: undefined
   [MainRoutes.PostList]: undefined
-  [MainRoutes.PostDetail]: undefined
+  [MainRoutes.PostDetail]: { url: string }
 }
 
 export type MainStackProps<T extends keyof MainStackParams> = NativeStackNavigationProp<MainStackParams, T>
+export type MainStackRoute<T extends keyof MainStackParams> = RouteProp<MainStackParams, T>
