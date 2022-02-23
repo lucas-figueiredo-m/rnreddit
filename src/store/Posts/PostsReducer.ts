@@ -35,6 +35,9 @@ export const PostsSlice = createSlice({
     setPaging(state) {
       state.paging = true
     },
+    setLoading(state) {
+      state.loading = true
+    },
     setNextPage(state, { payload: { nextPage } }: { payload: { nextPage: string | null } }) {
       state.nextPage = nextPage
     },
@@ -46,7 +49,6 @@ export const PostsSlice = createSlice({
       const item = state.searchHistory.find(item => item === newEntry)
       if (item) {
         const temp = [...state.searchHistory].filter(history => history !== newEntry)
-        console.log('temp: ', temp)
         state.searchHistory = [newEntry, ...temp]
         return
       }
@@ -59,29 +61,17 @@ export const PostsSlice = createSlice({
     }
   },
   extraReducers: builder => {
-    builder.addCase(getHotPosts.pending, state => {
-      state.loading = true
-    })
     builder.addCase(getHotPosts.fulfilled, state => {
       state.loading = false
       state.paging = false
-    })
-    builder.addCase(getNewPosts.pending, state => {
-      state.loading = true
     })
     builder.addCase(getNewPosts.fulfilled, state => {
       state.loading = false
       state.paging = false
     })
-    builder.addCase(getTopPosts.pending, state => {
-      state.loading = true
-    })
     builder.addCase(getTopPosts.fulfilled, state => {
       state.loading = false
       state.paging = false
-    })
-    builder.addCase(getPostsBySearch.pending, state => {
-      state.loading = true
     })
     builder.addCase(getPostsBySearch.fulfilled, state => {
       state.loading = false

@@ -38,8 +38,9 @@ const PostListScreen: React.FC = () => {
         keyExtractor={(_, index) => index.toString()}
         renderItem={({ item }) => <PostCard {...item.data} />}
         ItemSeparatorComponent={() => <ListSpacer />}
+        onEndReachedThreshold={0.6}
         onEndReached={() => {
-          if (!postlist.paging) dispatch(PostsThunks.getNextPage())
+          if (!postlist.paging && !postlist.loading) dispatch(PostsThunks.getNextPage())
         }}
         ListFooterComponent={<Loader loading={postlist.paging} />}
       />
