@@ -3,7 +3,7 @@ import { RedditServices } from 'services/redditService'
 import { RootState } from 'store'
 import { RedditPost } from 'types/RedditTypes'
 import { getHotPosts } from 'store/Posts'
-import { getNewPosts, getTopPosts } from './PostsThunks'
+import { getNewPosts, getTopPosts, getPostsBySearch } from './PostsThunks'
 
 interface SearchState {
   searchHistory: string[]
@@ -61,6 +61,12 @@ export const PostsSlice = createSlice({
       state.loading = true
     })
     builder.addCase(getTopPosts.fulfilled, state => {
+      state.loading = false
+    })
+    builder.addCase(getPostsBySearch.pending, state => {
+      state.loading = true
+    })
+    builder.addCase(getPostsBySearch.fulfilled, state => {
       state.loading = false
     })
   }

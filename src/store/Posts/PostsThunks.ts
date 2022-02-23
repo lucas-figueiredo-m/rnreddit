@@ -20,8 +20,19 @@ export const getTopPosts = createAsyncThunk('[POSTS] Gets top posts', async (_, 
   dispatch(PostsActions.setPosts({ posts: res.data.data.children }))
 })
 
+export const getPostsBySearch = createAsyncThunk(
+  '[POSTS] Gets posts by searched term',
+  async (search: string, { dispatch }) => {
+    dispatch(PostsActions.setPostType({ postTypeSelected: RedditServices.Search }))
+    dispatch(PostsActions.addEntryToHistory({ newEntry: search }))
+    const res = await reddit.searchPosts(search)
+    dispatch(PostsActions.setPosts({ posts: res.data.data.children }))
+  }
+)
+
 export const PostsThunks = {
   getHotPosts,
   getNewPosts,
-  getTopPosts
+  getTopPosts,
+  getPostsBySearch
 }

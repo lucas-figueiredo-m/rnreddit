@@ -9,20 +9,12 @@ import { Colors } from 'theme'
 import { PostCard } from './components/PostCard/PostCard'
 
 const PostListScreen: React.FC = () => {
-  // const [redditPosts, setPosts] = useState<RedditPost[]>([])
   const dispatch = useDispatch()
   const postlist = useSelector(posts)
   const { Layout } = useTheme()
 
   const getPosts = async () => {
     dispatch(PostsThunks.getHotPosts())
-    // try {
-    //   const res = await reddit.getHotPosts()
-    //   setPosts(res.data.data.children)
-    //   console.log('res: ', res.data)
-    // } catch (error) {
-    //   return
-    // }
   }
 
   useEffect(() => {
