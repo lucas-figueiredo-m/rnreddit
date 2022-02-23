@@ -1,5 +1,10 @@
 # React Native Reddit
 
+<div align="center">
+  <img src="./screenshots/screenshot_1.png" width="25%" height="25%" alt="print-app">
+  <img src="./screenshots/screenshot_2.png" width="25%" height="25%" alt="print-app">
+</div>
+
 ### Technologies and used packages
 - [x] React Native
 - [x] Typescript
