@@ -1,5 +1,11 @@
 # React Native Reddit
 
+### Technologies and used packages
+- [x] React Native
+- [x] Typescript
+- [x] Redux Toolkit
+- [x] Redux Persist
+
 ### Environment setup
 Follow the setup instructions on [React Native webpage](https://reactnative.dev/docs/environment-setup). Make sure you're setting up the React Native CLI, not hte expo
 
