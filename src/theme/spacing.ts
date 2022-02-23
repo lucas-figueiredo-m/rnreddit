@@ -62,6 +62,26 @@ export default {
       lg: { marginRight: Metrics.lg },
       xl: { marginRight: Metrics.xl },
       xxl: { marginRight: Metrics.xxl }
+    }),
+    top: StyleSheet.create({
+      none: { marginTop: Metrics.none },
+      xxs: { marginTop: Metrics.xxs },
+      xs: { marginTop: Metrics.xs },
+      sm: { marginTop: Metrics.sm },
+      md: { marginTop: Metrics.md },
+      lg: { marginTop: Metrics.lg },
+      xl: { marginTop: Metrics.xl },
+      xxl: { marginTop: Metrics.xxl }
+    }),
+    bottom: StyleSheet.create({
+      none: { marginBottom: Metrics.none },
+      xxs: { marginBottom: Metrics.xxs },
+      xs: { marginBottom: Metrics.xs },
+      sm: { marginBottom: Metrics.sm },
+      md: { marginBottom: Metrics.md },
+      lg: { marginBottom: Metrics.lg },
+      xl: { marginBottom: Metrics.xl },
+      xxl: { marginBottom: Metrics.xxl }
     })
   },
   paddings: {

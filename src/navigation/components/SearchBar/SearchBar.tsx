@@ -38,7 +38,7 @@ const hitSlop = {
   right: 10
 }
 
-export const SearchBar: React.FC<Props> = props => {
+export const SearchBar = React.forwardRef<TextInput, Props>((props, ref) => {
   const { Layout, Spacing, Font } = useTheme()
 
   return (
@@ -46,6 +46,7 @@ export const SearchBar: React.FC<Props> = props => {
       <View style={[Layout.sizes.fill, Layout.justify.center]}>
         <TextInput
           {...props}
+          ref={ref}
           hitSlop={hitSlop}
           style={[
             styles.input,
@@ -72,4 +73,4 @@ export const SearchBar: React.FC<Props> = props => {
       )}
     </View>
   )
-}
+})

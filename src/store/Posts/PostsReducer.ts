@@ -30,18 +30,19 @@ export const PostsSlice = createSlice({
       state.postTypeSelected = postTypeSelected
     },
     addEntryToHistory(state, { payload: { newEntry } }: { payload: { newEntry: string } }) {
-      const itemIndex = state.searchHistory.findIndex(item => item === newEntry)
-      if (itemIndex > 0) {
-        const temp = [...state.searchHistory].splice(itemIndex)
-        state.searchHistory = [...temp, newEntry]
+      const item = state.searchHistory.find(item => item === newEntry)
+      if (item) {
+        const temp = [...state.searchHistory].filter(history => history !== newEntry)
+        console.log('temp: ', temp)
+        state.searchHistory = [newEntry, ...temp]
         return
       }
-      if (state.searchHistory.length > 10) {
-        state.searchHistory = [...state.searchHistory.slice(0, 9), newEntry]
+      if (state.searchHistory.length === 10) {
+        state.searchHistory = [newEntry, ...state.searchHistory.slice(0, 9)]
         return
       }
 
-      state.searchHistory = [...state.searchHistory, newEntry]
+      state.searchHistory = [newEntry, ...state.searchHistory]
     }
   },
   extraReducers: builder => {
