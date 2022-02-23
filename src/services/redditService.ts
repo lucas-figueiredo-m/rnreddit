@@ -13,10 +13,14 @@ export enum RedditServices {
 }
 
 const service = {
-  getHotPosts: () => api.get<RedditListing>(RedditServices.Hot),
-  getNewPosts: () => api.get<RedditListing>(RedditServices.New),
-  getTopPosts: () => api.get<RedditListing>(RedditServices.Top),
-  searchPosts: (q: string) => api.get<RedditListing>(RedditServices.Search, { params: { q } })
+  getHotPosts: (page: string | null) =>
+    api.get<RedditListing>(RedditServices.Hot, page ? { params: { after: page } } : undefined),
+  getNewPosts: (page: string | null) =>
+    api.get<RedditListing>(RedditServices.New, page ? { params: { after: page } } : undefined),
+  getTopPosts: (page: string | null) =>
+    api.get<RedditListing>(RedditServices.Top, page ? { params: { after: page } } : undefined),
+  searchPosts: (q: string, page: string | null) =>
+    api.get<RedditListing>(RedditServices.Search, page ? { params: { after: page, q } } : { params: { q } })
 }
 
 export default service

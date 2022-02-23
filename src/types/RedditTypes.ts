@@ -21,8 +21,8 @@ export type RedditPost = {
 }
 
 export type RedditListingData = {
-  before: string
-  after: string
+  before: string | null
+  after: string | null
   modhash: string
   children: RedditPost[]
 }

@@ -22,11 +22,11 @@ export const Header: React.FC<NativeStackHeaderProps> = () => {
     setSearch(searchHistory[index])
     SearchRef.current?.blur()
     // setFocused(false)
-    dispatch(PostsThunks.getPostsBySearch(searchHistory[index]))
+    dispatch(PostsThunks.getPostsBySearch({ search: searchHistory[index] }))
   }
 
   const onSubmitSearch = (text: string) => {
-    dispatch(PostsThunks.getPostsBySearch(text))
+    dispatch(PostsThunks.getPostsBySearch({ search: text }))
     SearchRef.current?.blur()
   }
 

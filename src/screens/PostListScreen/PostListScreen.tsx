@@ -1,5 +1,6 @@
 import { ListSpacer } from 'components/ListSpacer/ListSpacer'
 import useTheme from 'hooks/useTheme'
+import { Loader } from 'navigation/components/Loader/Loader'
 import React from 'react'
 import { useEffect } from 'react'
 import { ActivityIndicator, FlatList, SafeAreaView, View } from 'react-native'
@@ -37,6 +38,10 @@ const PostListScreen: React.FC = () => {
         keyExtractor={(_, index) => index.toString()}
         renderItem={({ item }) => <PostCard {...item.data} />}
         ItemSeparatorComponent={() => <ListSpacer />}
+        onEndReached={() => {
+          if (!postlist.paging) dispatch(PostsThunks.getNextPage())
+        }}
+        ListFooterComponent={<Loader loading={postlist.paging} />}
       />
     </SafeAreaView>
   )
